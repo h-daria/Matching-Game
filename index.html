@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" async></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Matching Cards</title>
+</head>
+<body>
+    <div class="pop-up-container invisible">
+        <div class="starting-pop-up">
+            <h1 class="pop-up-title">
+                Welcome!
+            </h1>
+            <div class="settings">
+                <h2>Choose Game Mode:</h2>
+                <div class="radio-buttons-container">
+                    <div class="input-container">
+                        <input type="radio" name="mode" id="lessCards" value="9">
+                        <label for="lessCards">9</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="radio" name="mode" id="moreCards" value="12">
+                        <label for="moreCards">12</label>
+                    </div>
+                </div>
+            </div>
+            <div class="settings">
+                <h2>Choose Your Theme:</h2>
+                <div class="radio-buttons-container">
+                    <div class="input-container">
+                        <input type="radio" name="theme" id="yellowTheme" value="yellow">
+                        <label for="yellowTheme">Yellow</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="radio" name="theme" id="purpleTheme" value="purple">
+                        <label for="purpleTheme">Purple</label>
+                    </div>
+                </div>
+            </div>
+            <div class="settings">
+                <h2>Time Limit:</h2>
+                <div class="radio-buttons-container">
+                    <div class="input-container">
+                        <input type="radio" name="limit" id="lessTime" value="50">
+                        <label for="lessTime">50</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="radio" name="limit" id="moreTime" value="100">
+                        <label for="moreTime">100</label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="start-button">Start The Game</button>
+
+        </div>
+    </div>
+
+    <div class="pop-up-over-container invisible">
+        <h1 class="game-title">You Win!</h1>
+        <button class="replay-button">Replay</button>
+    </div>
+
+    <div class="pop-up-over-container invisible">
+        <h1 class="game-title">Game Is Over</h1>
+        <button class="replay-button">Replay</button>
+    </div>
+    
+    <h1 class="game-title">Match The Cards</h1>
+
+    <div class="info-container">
+        Time remaining: <span id="time-info">100</span>
+    </div>
+
+    <div class="game-content-container">
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">1</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">1</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">2</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">2</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">3</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">3</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">4</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">4</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">5</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">5</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">6</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">6</span>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
