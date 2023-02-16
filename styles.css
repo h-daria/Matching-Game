@@ -1,10 +1,22 @@
+:root {
+    --darkBackground: #F49D1A;
+    --lightBackground: #ffe779;
+    --popUpTextColor: #FF6D00;
+    --borderColor: #df8f17;
+    --replayButtonBackground: #ffb236;
+    --startButtonHover: #e7bc10;
+    --attentionColor: #DC3535;
+    --cardFaceHover: #dc4e35;
+    --cardBackground: #ffdca4;
+}
+
 html {
     min-height: 100vh;
 }
 
 body {
     margin: 0;
-    background: radial-gradient(#F49D1A, #ffe779);
+    background: radial-gradient(var(--darkBackground), var(--lightBackground));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,8 +42,8 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 100;
-    color: #FF6D00;
-    font-family: Creepy, serif;
+    color: var(--popUpTextColor);
+    font-family: "Josefin Sans", sans-serif;
     background-color: rgba(0, 0, 0, .8);
 }
 
@@ -41,7 +53,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     width: 15%;
-    border: 3px solid #df8f17;
+    border: 3px solid var(--borderColor);
     border-radius: 10px;
     background-color: seashell;
     padding: 1rem 3rem;
@@ -53,18 +65,18 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 100;
-    color: #FF6D00;
+    color: var(--popUpTextColor);
     font-family: Creepy, serif;
     background-color: rgba(0, 0, 0, .8);
 }
 
-.pop-up-over-container.invisible {
-    display: none;
+.pop-up-over-container.visible {
+    display: flex;
 }
 
 .pop-up-container.invisible {
@@ -100,7 +112,7 @@ button {
     width: fit-content;
     padding: 1rem;
     margin: 1rem;
-    border: 3px solid #df8f17;
+    border: 3px solid var(--borderColor);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -111,16 +123,16 @@ button {
 }
 
 .replay-button {
-    background-color: #ffb236;
+    background-color: var(--replayButtonBackground);
     color: seashell;
 }
 
 .start-button:hover {
-    color: #e7bc10;
+    color: var(--startButtonHover);
 }
 
 .replay-button:hover {
-    color: #DC3535;
+    color: var(--attentionColor);
 }
 
 .info-container {
@@ -132,10 +144,10 @@ button {
 
 #time-info {
     font-size: 2rem;
-    color: #DC3535;
+    color: var(--attentionColor);
 }
 
-.game-content-container {
+#game-content-container {
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 1rem;
@@ -143,10 +155,16 @@ button {
     perspective: 500px;
 }
 
-.card {
+.card.normalCard {
     position: relative;
     height: 7rem;
     width: 7rem;
+}
+
+.card.biggerCard {
+    position: relative;
+    height: 10rem;
+    width: 10rem;
 }
 
 .card-face {
@@ -157,14 +175,14 @@ button {
     justify-content: center;
     align-items: center;
     backface-visibility: hidden;
-    border: 3px solid #df8f17;
+    border: 3px solid var(--borderColor);
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 700ms ease-in-out;
+    transition: transform 600ms ease-in-out;
 }
 
 .card-face:hover {
-    border: 3px solid #dc4e35;
+    border: 3px solid var(--cardFaceHover);
     transition-duration: 1s;
 }
 
@@ -177,7 +195,7 @@ button {
 }
 
 .card.matched .card-id {
-    animation: dance 1s linear infinite 700ms;
+    animation: dance 1s linear infinite 500ms;
 }
 
 @keyframes dance {
@@ -190,14 +208,14 @@ button {
     75% {
       transform: rotate(30deg);
     }
-  }
+}
 
 .card-back {
-    background-color: #fbd08c;
+    background-color: var(--cardBackground);
 }
 
 .card-front {
-    background-color: #ffdca4;
+    background-color: var(--cardBackground);
     transform: rotateY(180deg);
 }
 
@@ -210,7 +228,8 @@ span {
 }
 
 .card:hover span {
-    color: #DC3535;
+    color: var(--attentionColor);
     transition-duration: 1s;
 }
+
 
