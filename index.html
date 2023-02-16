@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="node_modules/animejs/lib/anime.min.js"></script>   
     <script src="script.js" async></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,25 +13,25 @@
     <title>Matching Cards</title>
 </head>
 <body>
-    <div class="pop-up-container invisible">
+    <div id="welcome-message" class="pop-up-container">
         <div class="starting-pop-up">
             <h1 class="pop-up-title">
                 Welcome!
             </h1>
-            <div class="settings">
+            <div class="settingsMode">
                 <h2>Choose Game Mode:</h2>
                 <div class="radio-buttons-container">
                     <div class="input-container">
-                        <input type="radio" name="mode" id="lessCards" value="9">
-                        <label for="lessCards">9</label>
+                        <input type="radio" name="mode" id="lessCards" value="12">
+                        <label for="lessCards">12</label>
                     </div>
                     <div class="input-container">
-                        <input type="radio" name="mode" id="moreCards" value="12">
-                        <label for="moreCards">12</label>
+                        <input type="radio" name="mode" id="moreCards" value="16">
+                        <label for="moreCards">16</label>
                     </div>
                 </div>
             </div>
-            <div class="settings">
+            <div class="settingsTheme">
                 <h2>Choose Your Theme:</h2>
                 <div class="radio-buttons-container">
                     <div class="input-container">
@@ -43,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="settings">
+            <div class="settingsLimit">
                 <h2>Time Limit:</h2>
                 <div class="radio-buttons-container">
                     <div class="input-container">
@@ -56,20 +57,33 @@
                     </div>
                 </div>
             </div>
+            <div class="settingsSize">
+                <h2>Game Size:</h2>
+                <div class="radio-buttons-container">
+                    <div class="input-container">
+                        <input type="radio" name="size" id="lessSize" value="7">
+                        <label for="lessSize">Normal Cards</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="radio" name="size" id="biggerSize" value="10">
+                        <label for="biggerSize">Bigger Cards</label>
+                    </div>
+                </div>
+            </div>
 
-            <button class="start-button">Start The Game</button>
+            <button class="start-button" disabled="true" onclick="startTheGame()">Start The Game</button>
 
         </div>
     </div>
 
-    <div class="pop-up-over-container invisible">
+    <div id="win-message" class="pop-up-over-container">
         <h1 class="game-title">You Win!</h1>
-        <button class="replay-button">Replay</button>
+        <button class="replay-button" onclick="replayTheGame()">Replay</button>
     </div>
 
-    <div class="pop-up-over-container invisible">
+    <div id="game-over-message" class="pop-up-over-container">
         <h1 class="game-title">Game Is Over</h1>
-        <button class="replay-button">Replay</button>
+        <button class="replay-button" onclick="replayTheGame()">Replay</button>
     </div>
     
     <h1 class="game-title">Match The Cards</h1>
@@ -78,8 +92,8 @@
         Time remaining: <span id="time-info">100</span>
     </div>
 
-    <div class="game-content-container">
-            <div class="card">
+    <div id="game-content-container">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -87,7 +101,7 @@
                     <span class="card-id">1</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -95,7 +109,7 @@
                     <span class="card-id">1</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -104,7 +118,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -112,7 +126,7 @@
                     <span class="card-id">2</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -120,7 +134,7 @@
                     <span class="card-id">3</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -129,7 +143,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -137,7 +151,7 @@
                     <span class="card-id">4</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -145,7 +159,7 @@
                     <span class="card-id">4</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -154,7 +168,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -162,7 +176,7 @@
                     <span class="card-id">5</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
@@ -170,12 +184,44 @@
                     <span class="card-id">6</span>
                 </div>
             </div>
-            <div class="card">
+            <div class="card normalCard">
                 <div class="card-back card-face">
                     <span>?</span>
                 </div>
                 <div class="card-front card-face">
                     <span class="card-id">6</span>
+                </div>
+            </div>
+            <div class="card normalCard">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">7</span>
+                </div>
+            </div>
+            <div class="card normalCard">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">7</span>
+                </div>
+            </div>
+            <div class="card normalCard">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">8</span>
+                </div>
+            </div>
+            <div class="card normalCard">
+                <div class="card-back card-face">
+                    <span>?</span>
+                </div>
+                <div class="card-front card-face">
+                    <span class="card-id">8</span>
                 </div>
             </div>
     </div>
